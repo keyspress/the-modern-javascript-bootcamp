@@ -1,16 +1,18 @@
 let gradeCalc = function(studentScore, totalScore) {
     const grade = studentScore/totalScore * 100;
+    let letterGrade = '';
     if(grade >= 90) {
-        return `You got an A (${grade}%).`;
+        letterGrade = 'A';
     } else if (grade >= 80) {
-        return `You got a B (${grade}%).`;
+        letterGrade = 'B';
     } else if (grade >= 70) {
-        return `You got a C (${grade}%).`;
+        letterGrade = 'C';
     } else if (grade >= 60) {
-        return `You got a D (${grade}%).`;
+        letterGrade = 'D';
     } else {
-        return `You got an F (${grade}%). You friggin loser!`
+        letterGrade = 'F';
     }
+    return `You got a ${letterGrade} (${grade}%).`;
 }
 
 console.log(gradeCalc(75, 100));
