@@ -1,4 +1,4 @@
-let gradeCalc = function(studentScore, totalScore) {
+const gradeCalc = function(studentScore, totalScore) {
     const grade = studentScore/totalScore * 100;
     let letterGrade = '';
     if(grade >= 90) {
