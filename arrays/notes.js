@@ -1,28 +1,26 @@
-const notes = ['Note 1', 'Note 2', 'Note 3']
+const notes = [{
+  title: 'My next trip',
+  body: 'I want to go to Jupiter'
+}, {
+  title: 'Habbits to work on',
+  body: 'Code more'
+}, {
+  title: 'Office modifications',
+  body: 'Get an office'
+}]
 
-// console.log(notes.pop())
-// notes.push('My new note')
-
-// console.log(notes.shift())
-// notes.unshift('The first note ever!')
-
-// notes.splice(1, 1, "Little girl you're in the middle")
-
-notes[2] = 'tree tree tree'
-
-notes.forEach(function(item, index){
-  console.log(index)
-  console.log(item)
-})
-
-console.log(notes.length)
-console.log(notes)
-
-for (let count = 0; count <= 2; count++) {
-  console.log(count)  
+const findNote = function (notes, noteTitle) {
+  const index = notes.findIndex(function(note, index) {
+    return note.title.toLowerCase() === noteTitle.toLowerCase()
+  })
+  return notes[index]
 }
 
-for (let count = 0; count < notes.length; count++) {
-  console.log(notes[count])  
+const findNote = function (notes, noteTitle) {
+  return notes.find(function (note, index) {
+    return note.title.toLowerCase() === noteTitle.toLowerCase()
+  })
 }
 
+const note = findNote(notes, 'office modifications')
+console.log(note)
