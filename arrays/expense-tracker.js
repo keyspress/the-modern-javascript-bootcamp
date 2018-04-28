@@ -2,14 +2,14 @@ const account = {
     name: 'Bobby McGee',
     expenses: [],
     addExpense: function (description, amount) {
-        account.expenses.push({ description, amount })
+        this.expenses.push({ description, amount })
     },
     getAccountSummary: function () {
         let total = 0
-        account.expenses.forEach(function(expense) {
+        this.expenses.forEach(function(expense) {
             total += expense.amount
         })
-        return total
+        return `${this.name} has $${total} in expenses`
     }
 }
 
