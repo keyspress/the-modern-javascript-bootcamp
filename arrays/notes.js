@@ -30,8 +30,22 @@ const findNotes = function(notes, query) {
   })
 }
 
+const sortNotes = function(notes) {
+  notes.sort(function (a, b) {
+    if(a.title.toLowerCase() < b.title.toLowerCase()) {
+      return -1
+    } else if (b.title.toLowerCase() < a.title.toLowerCase()) {
+      return 1
+    } else {
+      return 0
+    }
+  })
+}
 
-console.log(findNotes(notes, 'eating'));
+// console.log(findNotes(notes, 'eating'));
 
-const note = findNote(notes, 'office modifications')
-console.log(note)
+// const note = findNote(notes, 'office modifications')
+// console.log(note)
+
+sortNotes(notes)
+console.log(notes)

@@ -30,7 +30,22 @@ const getThingsToDo = function(array) {
   })
 }
 
-console.log(getThingsToDo(todos))
+const sortTodos = function(array) {
+  todos.sort(function(a, b) {
+    if(b.completed > a.completed) {
+      return -1
+    } else if (a.completed > b.completed) {
+      return 1
+    } else {
+      return 0
+    }
+  })
+}
+
+sortTodos(todos)
+console.log(todos)
+
+// console.log(getThingsToDo(todos))
 
 // deleteTodo(todos, 'hfdfdfd');
 // console.log(todos);
