@@ -42,6 +42,19 @@ const sortTodos = function(array) {
   })
 }
 
+// TEACHER SOLUTION
+// const sortTodos = function (array) {
+//   todos.sort(function (a, b) {
+//     if (!a.completed && b.completed) {
+//       return -1
+//     } else if (!b.completed && a.completed) {
+//       return 1
+//     } else {
+//       return 0
+//     }
+//   })
+// }
+
 sortTodos(todos)
 console.log(todos)
 
