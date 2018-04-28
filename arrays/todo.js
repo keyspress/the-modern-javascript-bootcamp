@@ -24,5 +24,13 @@ const deleteTodo = function(array, todoBody) {
   }  
 }
 
-deleteTodo(todos, 'hfdfdfd');
-console.log(todos);
+const getThingsToDo = function(array) {
+  return todos.filter(function(item, index) {
+    return item.completed === false
+  })
+}
+
+console.log(getThingsToDo(todos))
+
+// deleteTodo(todos, 'hfdfdfd');
+// console.log(todos);
