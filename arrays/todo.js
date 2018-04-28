@@ -26,7 +26,7 @@ const deleteTodo = function(array, todoBody) {
 
 const getThingsToDo = function(array) {
   return todos.filter(function(item, index) {
-    return item.completed === false
+    return !item.completed 
   })
 }
 
