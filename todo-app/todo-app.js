@@ -15,9 +15,6 @@ const todos = [{
     completed: false
 }]
 
-// const summary = document.createElement('p')
-// summary.textContent = `You have ${todos.length} todos left.`
-// document.querySelector('body').appendChild(summary)
 
 const completeTodos = todos.filter(function(todo) {
     return !todo.completed
@@ -33,16 +30,6 @@ todos.forEach(function (item) {
     document.querySelector('body').appendChild(todo)
 })
 
-// todos.forEach(function(item) {
-//     const todo = document.createElement('p')
-//     todo.textContent = item.body
-//     document.querySelector('body').appendChild(todo)
-// })
-
-// const ps = document.querySelectorAll('p')
-
-// ps.forEach(function(p) {
-//     if(p.textContent.includes('the')) {
-//         p.remove()
-//     }
-// })
+document.querySelector('button').addEventListener('click', function (e) {
+    e.target.textContent = 'You clicked me! Yay!'
+})
