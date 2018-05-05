@@ -10,6 +10,12 @@ const notes = [{
     body: 'Get an office'
 }]
 
-document.querySelector('button').addEventListener('click', function(e){
+document.querySelector('#create-note').addEventListener('click', function(e){
     e.target.textContent = 'oooo I like that'
+})
+
+document.querySelector('#remove-all').addEventListener('click', function() {
+    document.querySelectorAll('.note').forEach(function(note) {
+        note.remove()
+    })
 })

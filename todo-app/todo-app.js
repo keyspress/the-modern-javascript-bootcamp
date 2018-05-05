@@ -30,6 +30,6 @@ todos.forEach(function (item) {
     document.querySelector('body').appendChild(todo)
 })
 
-document.querySelector('button').addEventListener('click', function (e) {
-    e.target.textContent = 'You clicked me! Yay!'
+document.querySelector('#add-todo').addEventListener('click', function (e) {
+    console.log('You clicked me! Yay!')
 })
