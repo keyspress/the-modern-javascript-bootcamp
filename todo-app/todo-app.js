@@ -29,12 +29,12 @@ const renderTodos = function(todos, filters) {
         return !todo.completed
     })    
 
-    let renderedTodos = ''
-    if(filters.hideCompleted) {
-        renderedTodos = incompleteTodos
-    } else {
-        renderedTodos = filteredTodos
-    }
+    let renderedTodos = filters.hideCompleted ? incompleteTodos : filteredTodos
+    // if(filters.hideCompleted) {
+    //     renderedTodos = incompleteTodos
+    // } else {
+    //     renderedTodos = filteredTodos
+    // }
 
     document.querySelector('#todos').innerHTML = ''
 
@@ -64,6 +64,6 @@ document.querySelector('#add-todo').addEventListener('submit', function(e) {
 })
 
 document.querySelector("#hide-completed").addEventListener('change', function (e) {
-    filters.hideCompleted = !filters.hideCompleted   
+    filters.hideCompleted = e.target.checked  
     renderTodos(todos, filters)  
 })
