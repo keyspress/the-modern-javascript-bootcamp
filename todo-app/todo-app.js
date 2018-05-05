@@ -16,7 +16,8 @@ const todos = [{
 }]
 
 const filters = {
-    searchText: ''
+    searchText: '',
+    hideCompleted: false
 }
 
 const renderTodos = function(todos, filters) {
@@ -28,13 +29,20 @@ const renderTodos = function(todos, filters) {
         return !todo.completed
     })    
 
+    let renderedTodos = ''
+    if(filters.hideCompleted) {
+        renderedTodos = incompleteTodos
+    } else {
+        renderedTodos = filteredTodos
+    }
+
     document.querySelector('#todos').innerHTML = ''
 
     const summary = document.createElement('h2')
     summary.textContent = `You have ${incompleteTodos.length} todos left`
     document.querySelector('#todos').appendChild(summary)
 
-    filteredTodos.forEach(function (item) {
+    renderedTodos.forEach(function (item) {
         const todo = document.createElement('p')
         todo.textContent = item.body
         document.querySelector('#todos').appendChild(todo)
@@ -53,4 +61,9 @@ document.querySelector('#add-todo').addEventListener('submit', function(e) {
     todos.push({ body: e.target.elements.newTodo.value, completed: false })
     renderTodos(todos, filters)
     e.target.elements.newTodo.value = ''
+})
+
+document.querySelector("#hide-completed").addEventListener('change', function (e) {
+    filters.hideCompleted = !filters.hideCompleted   
+    renderTodos(todos, filters)  
 })
