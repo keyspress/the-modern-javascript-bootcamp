@@ -30,11 +30,6 @@ const renderTodos = function(todos, filters) {
     })    
 
     const renderedTodos = filters.hideCompleted ? incompleteTodos : filteredTodos
-    // if(filters.hideCompleted) {
-    //     renderedTodos = incompleteTodos
-    // } else {
-    //     renderedTodos = filteredTodos
-    // }
 
     document.querySelector('#todos').innerHTML = ''
 
