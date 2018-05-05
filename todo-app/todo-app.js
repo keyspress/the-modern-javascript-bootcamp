@@ -20,18 +20,18 @@ const filters = {
 }
 
 const renderTodos = function(todos, filters) {
-    const incompleteTodos = todos.filter(function (todo) {
-        return !todo.completed
-    })
-
-    const filteredTodos = incompleteTodos.filter(function (todo) {
+    const filteredTodos = todos.filter(function (todo) {
         return todo.body.toLowerCase().includes(filters.searchText.toLowerCase())
     })
+    
+    const incompleteTodos = filteredTodos.filter(function (todo) {
+        return !todo.completed
+    })    
 
     document.querySelector('#todos').innerHTML = ''
 
     const summary = document.createElement('h2')
-    summary.textContent = `You have ${filteredTodos.length} todos left`
+    summary.textContent = `You have ${incompleteTodos.length} todos left`
     document.querySelector('#todos').appendChild(summary)
 
     filteredTodos.forEach(function (item) {
