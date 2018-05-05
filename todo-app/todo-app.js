@@ -29,7 +29,7 @@ const renderTodos = function(todos, filters) {
         return !todo.completed
     })    
 
-    let renderedTodos = filters.hideCompleted ? incompleteTodos : filteredTodos
+    const renderedTodos = filters.hideCompleted ? incompleteTodos : filteredTodos
     // if(filters.hideCompleted) {
     //     renderedTodos = incompleteTodos
     // } else {
