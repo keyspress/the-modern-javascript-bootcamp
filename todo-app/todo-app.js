@@ -15,15 +15,29 @@ const todos = [{
     completed: false
 }]
 
-const summary = document.createElement('p')
-summary.textContent = `You have ${todos.length} todos left.`
+// const summary = document.createElement('p')
+// summary.textContent = `You have ${todos.length} todos left.`
+// document.querySelector('body').appendChild(summary)
+
+const completeTodos = todos.filter(function(todo) {
+    return !todo.completed
+})
+
+const summary = document.createElement('h2')
+summary.textContent = `You have ${completeTodos.length} todos left`
 document.querySelector('body').appendChild(summary)
 
-todos.forEach(function(item) {
+todos.forEach(function (item) {
     const todo = document.createElement('p')
     todo.textContent = item.body
     document.querySelector('body').appendChild(todo)
 })
+
+// todos.forEach(function(item) {
+//     const todo = document.createElement('p')
+//     todo.textContent = item.body
+//     document.querySelector('body').appendChild(todo)
+// })
 
 // const ps = document.querySelectorAll('p')
 
