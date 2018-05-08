@@ -1,17 +1,14 @@
 
-const notes = [{
-    title: 'My next trip',
-    body: 'I want to go to Jupiter'
-}, {
-    title: 'Habbits to work on',
-    body: 'Code more'
-}, {
-    title: 'Office modifications',
-    body: 'Get an office'
-}]
+let notes = []
 
 const filters = {
     searchText: ''
+}
+
+const notesJSON = localStorage.getItem('notes')
+
+if (notesJSON !== null) {
+    notes = JSON.parse(notesJSON)
 }
 
 const renderNotes = function(notes, filters) {
@@ -23,7 +20,11 @@ const renderNotes = function(notes, filters) {
 
     filteredNotes.forEach(function (note) {
         const noteEl = document.createElement('p')
-        noteEl.textContent = note.title
+        if (note.title.length > 0) {
+            noteEl.textContent = note.title
+        } else {
+            noteEl.textContent = 'Unnamed note'
+        }        
         document.querySelector('#notes').appendChild(noteEl)
     })
 }
@@ -31,7 +32,12 @@ const renderNotes = function(notes, filters) {
 renderNotes(notes, filters)
 
 document.querySelector('#create-note').addEventListener('click', function(e){
-    e.target.textContent = 'oooo I like that'
+    notes.push({
+        title: '',
+        body: ''
+    })
+    localStorage.setItem('notes', JSON.stringify(notes))
+    renderNotes(notes, filters)
 })
 
 document.querySelector('#search-text').addEventListener('input', function(e) {
