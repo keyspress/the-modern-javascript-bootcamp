@@ -1,4 +1,4 @@
-let todos = []
+const todos = getSavedTodos()
 
 const filters = {
     searchText: '',
