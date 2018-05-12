@@ -37,19 +37,24 @@ const renderTodos = function (todos, filters) {
 
 // Get the DOM elements for an individual todo
 const generateTodoDOM = function (item) {
-    const todo = document.createElement('div')
+    const todoEl = document.createElement('div')
     const todoText = document.createElement('span')
-    const checkBox = document.createElement('input')
+    const checkbox = document.createElement('input')
+    const removeButton = document.createElement('button')
+
+    // Setup checkbox
+    checkbox.setAttribute('type', 'checkbox')
+    todoEl.appendChild(checkbox)
 
     // Setup Todo text 
     todoText.textContent = item.body
-    todo.appendChild(todoText)
+    todoEl.appendChild(todoText)
 
-    // Setup checkbox
-    checkBox.setAttribute('type', 'checkbox')
-    todo.appendChild(checkBox)
+    // Setup remove button
+    removeButton.textContent = 'x'
+    todoEl.appendChild(removeButton)
     
-    return todo    
+    return todoEl    
 }
 
 // get the DOM elements for list summary
