@@ -45,6 +45,7 @@ const removeTodo = function (id) {
 	}
 }
 
+//This is not working, not sure why
 const toggleTodo = function (id) {
 	const todo = todos.find(function(todo) {
 		return todo.id === id
